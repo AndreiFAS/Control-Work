@@ -6,7 +6,7 @@
 // ["1234", "1567", "2", "computer"] -> ["2"]
 // ["Russia", "Germany", "Moscow"] -> []
 
-string[] arrayInput = new string[] { "hello", "2", "world", ":-)" };
+string[] arrayInput = new string[] { "Russia", "Germany", "Moscow" };
 
 string[] CreateValidArray(string[] array)
 {
@@ -18,15 +18,23 @@ string[] CreateValidArray(string[] array)
         if (array[index].Length <= 3) count++;
         index++;
     }
-    string[] validArray = new string[count];
-    int validIndex = 0;
-    index = 0;
-    while (index < len)
+    if (count == 0)
     {
-        if (array[index].Length <= 3) validArray[validIndex++] = array[index];
-        index++;
+        string[] validArray = new string[]{"нет валидных элементов!"};
+        return validArray;
     }
-    return validArray;
+    else
+    {
+        string[] validArray = new string[count];
+        int validIndex = 0;
+        index = 0;
+        while (index < len)
+        {
+            if (array[index].Length <= 3) validArray[validIndex++] = array[index];
+            index++;
+        }
+        return validArray;
+    }
 }
 
 
